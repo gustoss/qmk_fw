@@ -1,0 +1,10 @@
+# Bootloader selection
+BOOTLOADER = rp2040
+
+# SPLIT_KEYBOARD = yes
+SERIAL_DRIVER = vendor
+
+OLED_ENABLE = yes
+OLED_TRANSPORT = i2c
+
+OS_DETECTION_ENABLE = yes

@@ -9,17 +9,17 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BL] = LAYOUT(
-        KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LBRC,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_MINS,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+        KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LBRC,  KC_NO, KC_4, KC_7, KC_8, KC_9, KC_0, KC_NO,
+        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_MINS,  KC_NO, KC_5, KC_2, KC_3, KC_4, KC_5, KC_NO,
+        KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_NO,  KC_NO, KC_6, KC_3, KC_8, KC_9, KC_0, KC_NO,
+        KC_NO, KC_2, KC_7, KC_8, KC_9, KC_0, KC_NO,  KC_NO,KC_7, KC_2, KC_3, KC_4, KC_5, KC_NO,
+        KC_NO, KC_3, KC_2, KC_3, KC_4, KC_5, KC_NO,  KC_NO, KC_8, KC_1, KC_8, KC_9, KC_0, KC_NO
     )
 };
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_BL] = { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  },
+    [_BL] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  },
 };
 #endif
 
@@ -45,3 +45,13 @@ bool oled_task_user(void) {
     return false;
 }
 #endif
+
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  debug_enable=true;
+  debug_matrix=true;
+  debug_keyboard=true;
+  //debug_mouse=true;
+}
+
+67
